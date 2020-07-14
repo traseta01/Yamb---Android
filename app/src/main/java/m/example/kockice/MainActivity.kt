@@ -147,6 +147,15 @@ class MainActivity : AppCompatActivity() {
         return 0
     }
 
+    /* izracunaj proizvod razlika */
+    fun proizvodRazlika(max: Int, min: Int, kecevi: Int): Int
+    {
+        // ako je max < od min razlika je nule
+        if (max < min)
+            return 0
+        return kecevi * (max - min)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -286,14 +295,28 @@ class MainActivity : AppCompatActivity() {
                                 x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
                                 /* izracunaj i prikazi Z1 za kolonu dole */
                                 nizSuma[0] += x.text.toString().toInt()
+                                /* bonuks */
+                                if (nizSuma[0] > 59)
+                                    nizSuma[0] += 30
                                 dugme_dole_z1.text = nizSuma[0].toString()
                                 prikaz_rezultata.text = nizSuma.sum().toString()
                             }
-                            7, 8 -> {
+                            7 -> {
                                 x.text = izdvojZbirmm(nizBacenihBr).toString()
                             }
+                            8 -> {
+                                x.text = izdvojZbirmm(nizBacenihBr).toString()
+                                /* izracunaj i upisi razlike */
+                                nizSuma[4] = proizvodRazlika(dugme_dole_07.text.toString().toInt(),
+                                            dugme_dole_08.text.toString().toInt(),
+                                            dugme_dole_01.text.toString().toInt())
+                                dugme_dole_z2.text = nizSuma[4].toString()
+                                prikaz_rezultata.text = nizSuma.sum().toString()
+
+                            }
                             9 -> {
-                                x.text  /* suma svih igara */ = izdvojIgruFul(nizBacenihBr).toString()
+                                x.text = izdvojIgruFul(nizBacenihBr).toString()
+                                /* suma svih igara */
                                 nizSuma[8] += x.text.toString().toInt()
                                 prikaz_rezultata.text = "    " + nizSuma.sum().toString()
                             }
@@ -389,13 +412,26 @@ class MainActivity : AppCompatActivity() {
                     else if (nizIdGore[indeks].text == "")
                     {
                         when (indeks + 1) {
-                            1, 2, 3, 4, 5, 6 -> {
+                            1 -> {
                                 x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
                                 nizSuma[2] += x.text.toString().toInt()
                                 /* bonkus */
                                 if (nizSuma[2] > 59)
                                     nizSuma[2] += 30
-                                dugme_slob_z1.text = nizSuma[2].toString()
+                                dugme_gore_z1.text = nizSuma[2].toString()
+                                nizSuma[6] += proizvodRazlika(dugme_gore_07.text.toString().toInt(),
+                                                              dugme_gore_08.text.toString().toInt(),
+                                                              dugme_gore_01.text.toString().toInt())
+                                dugme_gore_z2.text = nizSuma[6].toString()
+                                prikaz_rezultata.text = "    " + nizSuma.sum().toString()
+                            }
+                             2, 3, 4, 5, 6 -> {
+                                x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
+                                nizSuma[2] += x.text.toString().toInt()
+                                /* bonkus */
+                                if (nizSuma[2] > 59)
+                                    nizSuma[2] += 30
+                                dugme_gore_z1.text = nizSuma[2].toString()
                                 prikaz_rezultata.text = "    " + nizSuma.sum().toString()
                             }
                             7, 8 -> {
