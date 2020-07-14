@@ -526,6 +526,15 @@ class MainActivity : AppCompatActivity() {
                             if (nizSuma[1] > 59)
                                 nizSuma[1] += 30
                             dugme_slob_z1.text = nizSuma[1].toString()
+                            // ako vec postoje min i max izracunaj proizvod razlika
+                            if (dugme_slob_07.text != "" && dugme_slob_08.text != "")
+                            {
+                                nizSuma[5] += proizvodRazlika(dugme_slob_07.text.toString().toInt(),
+                                                              dugme_slob_08.text.toString().toInt(),
+                                                              dugme_slob_01.text.toString().toInt()
+                                )
+                                dugme_slob_z2.text = nizSuma[5].toString()
+                            }
                             prikaz_rezultata.text = "    " + nizSuma.sum().toString()
                         }
                         2, 3, 4, 5, 6 -> {
@@ -537,8 +546,31 @@ class MainActivity : AppCompatActivity() {
                             dugme_slob_z1.text = nizSuma[1].toString()
                             prikaz_rezultata.text = "    " + nizSuma.sum().toString()
                         }
-                        7, 8 -> {
+                        7 -> {
                             x.text = izdvojZbirmm(nizBacenihBr).toString()
+                            // ako vec postoje min i kecevi izracunaj proizvod razlika
+                            if (dugme_slob_08.text != "" && dugme_slob_01.text != "")
+                            {
+                                nizSuma[5] += proizvodRazlika(dugme_slob_07.text.toString().toInt(),
+                                                              dugme_slob_08.text.toString().toInt(),
+                                                              dugme_slob_01.text.toString().toInt()
+                                )
+                                dugme_slob_z2.text = nizSuma[5].toString()
+                            }
+                            prikaz_rezultata.text = "    " + nizSuma.sum().toString()
+                        }
+                        8 -> {
+                            x.text = izdvojZbirmm(nizBacenihBr).toString()
+                            // ako vec postoje max i kecevi izracunaj proizvod razlika
+                            if (dugme_slob_07.text != "" && dugme_slob_01.text != "")
+                            {
+                                nizSuma[5] += proizvodRazlika(dugme_slob_07.text.toString().toInt(),
+                                    dugme_slob_08.text.toString().toInt(),
+                                    dugme_slob_01.text.toString().toInt()
+                                )
+                                dugme_slob_z2.text = nizSuma[5].toString()
+                            }
+                            prikaz_rezultata.text = "    " + nizSuma.sum().toString()
                         }
                         9 -> {
                             x.text = izdvojIgruFul(nizBacenihBr).toString()
@@ -607,7 +639,24 @@ class MainActivity : AppCompatActivity() {
                 if (x.text == "")
                 {
                     when (indeks + 1) {
-                        1, 2, 3, 4, 5, 6 -> {
+                        1 -> {
+                            x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
+                            nizSuma[3] += x.text.toString().toInt()
+                            /* bonkus */
+                            if (nizSuma[3] > 59)
+                                nizSuma[3] += 30
+                            dugme_naja_z1.text = nizSuma[3].toString()
+                            // ako vec postoje min i max izracunaj proizvod razlika
+                            if (dugme_naja_07.text != "" && dugme_naja_08.text != "")
+                            {
+                                nizSuma[7] += proizvodRazlika(dugme_naja_07.text.toString().toInt(),
+                                                              dugme_naja_08.text.toString().toInt(),
+                                                              dugme_naja_01.text.toString().toInt())
+                                dugme_naja_z2.text = nizSuma[7].toString()
+                                prikaz_rezultata.text = "    " + nizSuma.sum().toString()
+                            }
+                        }
+                        2, 3, 4, 5, 6 -> {
                             x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
                             nizSuma[3] += x.text.toString().toInt()
                             /* bonkus */
@@ -618,9 +667,27 @@ class MainActivity : AppCompatActivity() {
                         }
                         7 -> {
                             x.text = izdvojZbirmm(nizBacenihBr).toString()
+                            // ako vec postoje min i kecevi izracunaj proizvod razlika
+                            if (dugme_naja_01.text != "" && dugme_naja_08.text != "")
+                            {
+                                nizSuma[7] += proizvodRazlika(dugme_naja_07.text.toString().toInt(),
+                                                              dugme_naja_08.text.toString().toInt(),
+                                                              dugme_naja_01.text.toString().toInt())
+                                dugme_naja_z2.text = nizSuma[7].toString()
+                                prikaz_rezultata.text = "    " + nizSuma.sum().toString()
+                            }
                         }
                         8 -> {
                             x.text = izdvojZbirmm(nizBacenihBr).toString()
+                            // ako vec postoje max i kecevi izracunaj proizvod razlika
+                            if (dugme_naja_07.text != "" && dugme_naja_01.text != "")
+                            {
+                                nizSuma[7] += proizvodRazlika(dugme_naja_07.text.toString().toInt(),
+                                                             dugme_naja_08.text.toString().toInt(),
+                                                             dugme_naja_01.text.toString().toInt())
+                                dugme_naja_z2.text = nizSuma[7].toString()
+                                prikaz_rezultata.text = "    " + nizSuma.sum().toString()
+                            }
                         }
                         9 -> {
                             x.text = izdvojIgruFul(nizBacenihBr).toString()
