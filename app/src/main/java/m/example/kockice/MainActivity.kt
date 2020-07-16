@@ -230,9 +230,21 @@ class MainActivity : AppCompatActivity() {
 
             for (x in nizIdbacene)
             {
+                /* set button animation for roll effect */
+                x.animate().setDuration(150).rotationBy(360f)
                 x.text = (1..6).random().toString()
             }
 
+            for (x in nizIdbacene)
+            {
+            }
+            for (x in nizIdbacene)
+            {
+            }
+            for (x in nizIdbacene)
+            {
+                x.text = (1..6).random().toString()
+            }
             brojBacanja++
             // brojBacanja %= 3
             /* Number of moves text */
