@@ -324,7 +324,7 @@ class MainActivity : AppCompatActivity() {
 
                 /* prepoznaj koje je polje kliknuto i updateuj ga accordingly */
                 /* uslov je: if nije kliknuto na prvo polje */
-                if (indeks > 0)
+                if (indeks > 0 && !indNajava && brojBacanja > 0)
                 {
 
                     /* ako u prethodnom polju nije upisano nista ignorisi click */
@@ -396,7 +396,7 @@ class MainActivity : AppCompatActivity() {
                         brojBacanja = proba(br_bacanja, baci_dugme)
                     }
                 }
-                else if(nizIdDole[indeks].text == "")
+                else if(nizIdDole[indeks].text == "" && !indNajava && brojBacanja > 0)
                 {
                     nizIdDole[indeks].text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
                     nizSuma[0] += nizIdDole[indeks].text.toString().toInt()
@@ -455,7 +455,7 @@ class MainActivity : AppCompatActivity() {
 
                 /* prepoznaj koje je polje kliknuto i updateuj ga accordingly */
                 /* uslov je: if nije kliknuto na na poslednje polje */
-                if (indeks < 11)
+                if (indeks < 11 && !indNajava && brojBacanja > 0)
                 {
 
                     /* ako u prethodnom polju nije upisano nista ignorisi click */
@@ -525,7 +525,7 @@ class MainActivity : AppCompatActivity() {
                         brojBacanja = proba(br_bacanja, baci_dugme)
                     }
                 }
-                else if(nizIdGore[indeks].text == "")
+                else if(nizIdGore[indeks].text == "" && !indNajava && brojBacanja > 0)
                 {
                     nizIdGore[indeks].text = izdvojIgruYamb(nizBacenihBr).toString()
                     nizSuma[8] += nizIdGore[indeks].text.toString().toInt()
@@ -710,8 +710,9 @@ class MainActivity : AppCompatActivity() {
                     indNajava = true
                     //x.setBackgroundColor(Color.rgb(0xF0,0xF0,0xF0))
                     x.background = (resources.getDrawable(R.drawable.button_border1))
+                    x.text = " "
                 }
-                else if (x.text == "" && indNajava)
+                else if (x.text == " " )
                 {
                     indNajava = false
                     x.background = (resources.getDrawable(R.drawable.button_border))
@@ -820,8 +821,10 @@ class MainActivity : AppCompatActivity() {
                     x.text = ""
                 for (x in nizIdGore)
                     x.text = ""
-                for (x in nizIdNaja)
+                for (x in nizIdNaja) {
                     x.text = ""
+                    x.background = resources.getDrawable(R.drawable.button_border)
+                }
                 for (x in nizIdSlob)
                     x.text = ""
                 for (x in nizIdbacene)
@@ -851,6 +854,7 @@ class MainActivity : AppCompatActivity() {
                 baci_dugme.isClickable = true
                 br_bacanja.text = "III"
                 brojBacanja = 0
+                indNajava = false
             return true  }
         })
     }
