@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.os.Build
 import android.util.ArraySet
 import android.util.Range
+import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import java.lang.annotation.ElementType
 import java.util.EnumSet.range
@@ -131,8 +132,7 @@ class MainActivity : AppCompatActivity() {
         return 0
     }
 
-    /* igra Yamb */
-    fun izdvojIgruYamb(nekiniz: ArrayList<Int>): Int
+    /* igra Yamb */ fun izdvojIgruYamb(nekiniz: ArrayList<Int>): Int
     {
         val skup = ArraySet<Int>()
         /* napravi skup od svih bacenih kockica */
@@ -156,8 +156,17 @@ class MainActivity : AppCompatActivity() {
         return kecevi * (max - min)
     }
 
+    fun proba(tekst: TextView, dugme: Button): Int
+    {
+        tekst.text = "III"
+        dugme.isClickable = true
+
+        return 0
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        /* Full sreen */
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
@@ -212,6 +221,8 @@ class MainActivity : AppCompatActivity() {
         var indBonus3: Boolean = false
         var indBonus4: Boolean = false
 
+        /* Number of moves remaining button */
+        var brojBacanja = 0
 
         /* click event handler for BACI button */
         baci_dugme.setOnClickListener {
@@ -221,6 +232,20 @@ class MainActivity : AppCompatActivity() {
             {
                 x.text = (1..6).random().toString()
             }
+
+            brojBacanja++
+            // brojBacanja %= 3
+            /* Number of moves text */
+            when (brojBacanja%3)
+            {
+                0 -> { br_bacanja.text = "   "}
+                1 -> { br_bacanja.text = "II "}
+                2 -> { br_bacanja.text = "I  "}
+            }
+
+            /* Disable roll button after three moves */
+            if (brojBacanja > 2)
+                baci_dugme.isClickable = false
 
         }
 
@@ -357,6 +382,8 @@ class MainActivity : AppCompatActivity() {
                             x.text = ""
                             x.visibility = View.VISIBLE
                         }
+
+                        brojBacanja = proba(br_bacanja, baci_dugme)
                     }
                 }
                 else if(nizIdDole[indeks].text == "")
@@ -377,6 +404,8 @@ class MainActivity : AppCompatActivity() {
                         x.text = ""
                         x.visibility = View.VISIBLE
                     }
+
+                    brojBacanja = proba(br_bacanja, baci_dugme)
 
                 }
 
@@ -483,6 +512,7 @@ class MainActivity : AppCompatActivity() {
                             x.text = ""
                             x.visibility = View.VISIBLE
                         }
+                        brojBacanja = proba(br_bacanja, baci_dugme)
                     }
                 }
                 else if(nizIdGore[indeks].text == "")
@@ -502,6 +532,8 @@ class MainActivity : AppCompatActivity() {
                         x.text = ""
                         x.visibility = View.VISIBLE
                     }
+
+                    brojBacanja = proba(br_bacanja, baci_dugme)
                 }
 
             }
@@ -630,7 +662,9 @@ class MainActivity : AppCompatActivity() {
                         x.text = ""
                         x.visibility = View.VISIBLE
                     }
-                    }
+                    // resetuj br bacanja, baci_dugme i brojBacanja
+                    brojBacanja = proba(br_bacanja, baci_dugme)
+                }
                 }
             }
 
@@ -753,10 +787,13 @@ class MainActivity : AppCompatActivity() {
                         x.text = ""
                         x.visibility = View.VISIBLE
                     }
+
+                    brojBacanja = proba(br_bacanja, baci_dugme)
                 }
             }
         }
 
+        /* reinicijalizacija podataka */
         /* zapocni novu igru na dugacak klik */
         dugme_nova_igra.setOnLongClickListener(object: View.OnLongClickListener {
             override fun onLongClick(v: View?): Boolean {
@@ -791,6 +828,10 @@ class MainActivity : AppCompatActivity() {
                     nizSuma[x] = 0
 
                 prikaz_rezultata.text = "    0"
+
+                baci_dugme.isClickable = true
+                br_bacanja.text = "III"
+                brojBacanja = 0
             return true  }
         })
     }
