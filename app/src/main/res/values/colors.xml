@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="pozadinapolja">#DD98B2</color>
+    <color name="pozadinanajava">#F0CF71</color>
 </resources>

@@ -1,5 +1,6 @@
 package m.example.kockice
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -224,6 +225,9 @@ class MainActivity : AppCompatActivity() {
         /* Number of moves remaining button */
         var brojBacanja = 0
 
+        /* Najava indicator */
+        var indNajava: Boolean = false
+
         /* click event handler for BACI button */
         baci_dugme.setOnClickListener {
             /* za svaki id bacenih kockica postavi vrednost na osnovu ida */
@@ -237,12 +241,6 @@ class MainActivity : AppCompatActivity() {
 
             for (x in nizIdbacene)
             {
-            }
-            for (x in nizIdbacene)
-            {
-            }
-            for (x in nizIdbacene)
-            {
                 x.text = (1..6).random().toString()
             }
             brojBacanja++
@@ -251,7 +249,7 @@ class MainActivity : AppCompatActivity() {
             when (brojBacanja%3)
             {
                 0 -> { br_bacanja.text = "   "}
-                1 -> { br_bacanja.text = "II "}
+                1 -> { br_bacanja.text = " II "}
                 2 -> { br_bacanja.text = "I  "}
             }
 
@@ -578,7 +576,7 @@ class MainActivity : AppCompatActivity() {
                 val indeks: Int = nizIdSlob.indexOf(x)
 
                 /* ako je polje prazno upisi u njega */
-                if (x.text == "")
+                if (x.text == "" && !indNajava && brojBacanja > 0)
                 {
 
                     when (indeks + 1) {
@@ -707,8 +705,17 @@ class MainActivity : AppCompatActivity() {
                 val indeks: Int = nizIdNaja.indexOf(x)
 
                 /* ako je polje prazno upisi u njega */
-                if (x.text == "")
+                /* ako nije najavljeno, najavi */
+                if (x.text == "" && !indNajava && brojBacanja == 1) {
+                    indNajava = true
+                    //x.setBackgroundColor(Color.rgb(0xF0,0xF0,0xF0))
+                    x.background = (resources.getDrawable(R.drawable.button_border1))
+                }
+                else if (x.text == "" && indNajava)
                 {
+                    indNajava = false
+                    x.background = (resources.getDrawable(R.drawable.button_border))
+
                     when (indeks + 1) {
                         1 -> {
                             x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
