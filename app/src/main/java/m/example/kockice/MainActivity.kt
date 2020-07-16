@@ -165,6 +165,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+        /* 'Global' variables */
         /* Bacanje i izbor kockica idjevi */
         var nizIdbacene = arrayOf(bacene_dugme1,
                                   bacene_dugme2,
@@ -205,6 +206,11 @@ class MainActivity : AppCompatActivity() {
         /* niz u kojem cemo pamtiti sume kolona, igara i ukupnu sumu */
         var nizSuma: IntArray = intArrayOf(0,0,0,0,0,0,0,0,0)
 
+        /* pomocni indikatori bonusa, kako bounus ne bi dodavali vise puta */
+        var indBonus1: Boolean = false
+        var indBonus2: Boolean = false
+        var indBonus3: Boolean = false
+        var indBonus4: Boolean = false
 
 
         /* click event handler for BACI button */
@@ -296,8 +302,11 @@ class MainActivity : AppCompatActivity() {
                                 /* izracunaj i prikazi Z1 za kolonu dole */
                                 nizSuma[0] += x.text.toString().toInt()
                                 /* bonuks */
-                                if (nizSuma[0] > 59)
+                                if (nizSuma[0] > 59 && !indBonus1)
+                                {
                                     nizSuma[0] += 30
+                                    indBonus1 = true
+                                }
                                 dugme_dole_z1.text = nizSuma[0].toString()
                                 prikaz_rezultata.text = nizSuma.sum().toString()
                             }
@@ -356,18 +365,21 @@ class MainActivity : AppCompatActivity() {
                     nizSuma[0] += nizIdDole[indeks].text.toString().toInt()
                     dugme_dole_z1.text = nizSuma[0].toString()
                     prikaz_rezultata.text = "    " + nizSuma.sum().toString()
-
-                    //resetuj kockice
-                    for (x in nizIdzabrane) {
+                    // resetuj kockice
+                    for (x in nizIdzabrane)
+                    {
                         x.text = ""
                         x.visibility = View.INVISIBLE
                     }
 
-                    for (x in nizIdbacene) {
+                    for (x in nizIdbacene)
+                    {
                         x.text = ""
                         x.visibility = View.VISIBLE
                     }
+
                 }
+
             }
         }
 
@@ -416,8 +428,11 @@ class MainActivity : AppCompatActivity() {
                                 x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
                                 nizSuma[2] += x.text.toString().toInt()
                                 /* bonkus */
-                                if (nizSuma[2] > 59)
+                                if (nizSuma[2] > 59 && !indBonus3)
+                                {
                                     nizSuma[2] += 30
+                                    indBonus3 = true
+                                }
                                 dugme_gore_z1.text = nizSuma[2].toString()
                                 nizSuma[6] += proizvodRazlika(dugme_gore_07.text.toString().toInt(),
                                                               dugme_gore_08.text.toString().toInt(),
@@ -429,8 +444,11 @@ class MainActivity : AppCompatActivity() {
                                 x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
                                 nizSuma[2] += x.text.toString().toInt()
                                 /* bonkus */
-                                if (nizSuma[2] > 59)
-                                    nizSuma[2] += 30
+                                 if (nizSuma[2] > 59 && !indBonus3)
+                                 {
+                                     nizSuma[2] += 30
+                                     indBonus3 = true
+                                 }
                                 dugme_gore_z1.text = nizSuma[2].toString()
                                 prikaz_rezultata.text = "    " + nizSuma.sum().toString()
                             }
@@ -472,7 +490,7 @@ class MainActivity : AppCompatActivity() {
                     nizIdGore[indeks].text = izdvojIgruYamb(nizBacenihBr).toString()
                     nizSuma[8] += nizIdGore[indeks].text.toString().toInt()
                     prikaz_rezultata.text = "    " + nizSuma.sum().toString()
-                    // resetuj kockice
+
                     for (x in nizIdzabrane)
                     {
                         x.text = ""
@@ -485,6 +503,7 @@ class MainActivity : AppCompatActivity() {
                         x.visibility = View.VISIBLE
                     }
                 }
+
             }
         }
 
@@ -523,8 +542,11 @@ class MainActivity : AppCompatActivity() {
                             x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
                             nizSuma[1] += x.text.toString().toInt()
                             /* bonkus */
-                            if (nizSuma[1] > 59)
+                            if (nizSuma[1] > 59 && !indBonus2)
+                            {
                                 nizSuma[1] += 30
+                                indBonus2 = true
+                            }
                             dugme_slob_z1.text = nizSuma[1].toString()
                             // ako vec postoje min i max izracunaj proizvod razlika
                             if (dugme_slob_07.text != "" && dugme_slob_08.text != "")
@@ -541,8 +563,11 @@ class MainActivity : AppCompatActivity() {
                             x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
                             nizSuma[1] += x.text.toString().toInt()
                             /* bonkus */
-                            if (nizSuma[1] > 59)
+                            if (nizSuma[1] > 59 && !indBonus2)
+                            {
                                 nizSuma[1] += 30
+                                indBonus2 = true
+                            }
                             dugme_slob_z1.text = nizSuma[1].toString()
                             prikaz_rezultata.text = "    " + nizSuma.sum().toString()
                         }
@@ -643,8 +668,11 @@ class MainActivity : AppCompatActivity() {
                             x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
                             nizSuma[3] += x.text.toString().toInt()
                             /* bonkus */
-                            if (nizSuma[3] > 59)
+                            if (nizSuma[3] > 59 && !indBonus4)
+                            {
                                 nizSuma[3] += 30
+                                indBonus4 = true
+                            }
                             dugme_naja_z1.text = nizSuma[3].toString()
                             // ako vec postoje min i max izracunaj proizvod razlika
                             if (dugme_naja_07.text != "" && dugme_naja_08.text != "")
@@ -660,8 +688,11 @@ class MainActivity : AppCompatActivity() {
                             x.text = izdvojBrojGore(indeks + 1, nizBacenihBr).toString()
                             nizSuma[3] += x.text.toString().toInt()
                             /* bonkus */
-                            if (nizSuma[3] > 59)
+                            if (nizSuma[3] > 59 && !indBonus4)
+                            {
                                 nizSuma[3] += 30
+                                indBonus4 = true
+                            }
                             dugme_naja_z1.text = nizSuma[3].toString()
                             prikaz_rezultata.text = "    " + nizSuma.sum().toString()
                         }
