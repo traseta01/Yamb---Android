@@ -248,9 +248,9 @@ class MainActivity : AppCompatActivity() {
             /* Number of moves text */
             when (brojBacanja%3)
             {
-                0 -> { br_bacanja.text = "   "}
+                0 -> { br_bacanja.text = "    "}
                 1 -> { br_bacanja.text = " II "}
-                2 -> { br_bacanja.text = "I  "}
+                2 -> { br_bacanja.text = " I  "}
             }
 
             /* Disable roll button after three moves */

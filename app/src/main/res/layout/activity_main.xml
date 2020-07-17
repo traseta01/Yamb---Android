@@ -202,10 +202,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="1"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -259,10 +259,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="2"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -313,10 +313,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="3"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -368,10 +368,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="4"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -423,10 +423,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="5"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -477,10 +477,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="6"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -531,10 +531,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="z1"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -542,32 +542,36 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
-            android:textSize="18sp" />
+            android:background="@drawable/button_border2"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/dugme_slob_z1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
-            android:textSize="18sp" />
+            android:background="@drawable/button_border2"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/dugme_gore_z1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
-            android:textSize="18sp" />
+            android:background="@drawable/button_border2"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/dugme_naja_z1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
-            android:textSize="18sp" />
+            android:background="@drawable/button_border2"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
     </LinearLayout>
 
     <LinearLayout
@@ -585,10 +589,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="+"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -639,10 +643,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="-"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -693,10 +697,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="Z2"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -704,28 +708,36 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border" />
+            android:background="@drawable/button_border2"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/dugme_slob_z2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border" />
+            android:background="@drawable/button_border2"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/dugme_gore_z2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border" />
+            android:background="@drawable/button_border2"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/dugme_naja_z2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border" />
+            android:background="@drawable/button_border2"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
     </LinearLayout>
 
     <LinearLayout
@@ -743,10 +755,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="F"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -797,10 +809,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="P"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -851,11 +863,11 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="K"
             android:textAllCaps="false"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
@@ -906,10 +918,10 @@
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_border"
+            android:background="@drawable/button_border2"
             android:text="Y"
             android:textSize="18sp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
             android:typeface="monospace" />
 
         <Button
